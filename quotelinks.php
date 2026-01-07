@@ -103,16 +103,16 @@
 				}
 			else{
 				$username=!empty($qpost['username'])?$qpost['username']:'Unknown';
-				$text = htmlspecialchars("Post by {$username}",ENT_QUOTES,'UTF-8');
+				$text=htmlspecialchars("Post by {$username}",ENT_QUOTES,'UTF-8');
 				}
 			$links[]="<a href=\"{$url}\">{$text}</a>";
-		}
+			}
 
-		if (!empty($links)) {
-			// You can change the class name and markup to match your theme or a template.
-			$div = '<div class="quoted-by-block" style="margin-top:8px;font-size:0.95em;color:#555;">Quoted by: ' . implode(', ', $links) . '</div>';
-			// Append to the parsed message HTML. We already escaped link text & URL.
+		if(!empty($links)){
+			//You can change the class name and markup to match your theme or a template.
+			$div='<div class="quoted-by-block">Quoted by: ' . implode(', ', $links) . '</div>';
+			//Append to the parsed message HTML. We already escaped link text & URL.
 			$post['message'] .= $div;
+			}
 		}
-	}
 	?>
